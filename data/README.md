@@ -2,42 +2,47 @@
 
 ### 📌 Overview
 
-This dataset contains 45,000 Stack Overflow questions collected between **December 31, 2015** and **February 29, 2020**. Each entry includes a question title, body, tags, and a quality label (`Y`) indicating one of **three distinct categories**. It's designed for analyzing question quality and supporting machine learning tasks like classification and NLP.
+This dataset contains **45,000 questions** sampled from a larger corpus of **60,000 Stack Overflow posts** collected between **December 31, 2015** and **February 29, 2020**. Each question includes a title, body (in HTML), tags, and a categorical label `Y` that indicates one of three quality types:
+
+* `HQ`: High-quality posts with no edits.
+* `LQ_EDIT`: Low-quality posts with negative scores and multiple community edits, but still open.
+* `LQ_CLOSE`: Low-quality posts closed by the community with no edits.
+
+It's suitable for tasks involving text classification, moderation, and content quality analysis.
 
 ---
 
 ### 📊 Features
 
-| Column Name    | Description                                              |
-| -------------- | -------------------------------------------------------- |
-| `Id`           | Unique question ID                                       |
-| `Title`        | Question title text                                      |
-| `Body`         | Full question body in HTML format                        |
-| `Tags`         | Up to 5 tags per question (e.g., `<python>`, `<java>`)   |
-| `CreationDate` | Date and time the question was posted                    |
-| `Y`            | Label/category of the question quality (3 unique values) |
+| Column Name    | Description                                         |
+| -------------- | --------------------------------------------------- |
+| `Id`           | Unique identifier of the question                   |
+| `Title`        | Title of the question                               |
+| `Body`         | HTML-formatted body of the post                     |
+| `Tags`         | Up to 5 programming-related tags                    |
+| `CreationDate` | Date and time the post was created                  |
+| `Y`            | Quality label (one of: `HQ`, `LQ_EDIT`, `LQ_CLOSE`) |
 
 ---
 
-### 📈 Statistics
+### 📈 Summary Stats
 
-* **Tags**: Most frequent are `<python>` and `<java>` (each \~2%)
-* **Title & Body**: All unique entries
-* **Label Distribution (`Y`)**: Balanced across three categories (details not specified)
-* **CreationDate Range**: From late 2015 to early 2020
-* **Data Quality**: No missing or mismatched values reported
+* **Most common tags**: `<python>`, `<java>` (each \~2%)
+* **No missing values**: All fields are complete and validated
+* **Creation date range**: From late 2015 to early 2020
+* **Label balance**: 3 categories with relatively even distribution
 
 ---
 
 ### 💡 Use Cases
 
-* Question quality classification
-* Training NLP models for Q\&A moderation
-* Content recommendation and filtering
-* Feature extraction from HTML-rich text
+* Supervised learning for quality prediction
+* Text and HTML parsing tasks
+* Community moderation modeling
+* Tag relevance and recommendation experiments
 
 ---
 
-### 🔗 Link
+### 🔗 Source
 
 [🔗 View dataset on Kaggle](https://www.kaggle.com/datasets/imoore/60k-stack-overflow-questions-with-quality-rate)
